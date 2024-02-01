@@ -3,13 +3,12 @@
     display: flex;
     border: 0 solid black;
     box-shadow: 0 4px 4px 0 black;
-    margin-bottom: 4rem;
-    background-color: black;
+    background-color: rgb(60, 56, 56);
     align-items: center;
 }
 
 .title {
-    font-size: 4rem;
+    font-size: 5rem;
     min-width: max-content;
     color: #7f2eb5;
     cursor: pointer;
@@ -36,4 +35,5 @@
     border: #7f2eb5 solid 1px;
     box-shadow: 0 1px 0 1px #7f2eb5;
     color: #7f2eb5;
+    background-color: black;
 }
