@@ -34,7 +34,7 @@ const Home = () => {
 
         <div className={styles.eventList}>
           {currentEvents.map((data, index) => (
-            <div key={data.title} className={styles.eventBox}>
+            <div key={data.index} className={styles.eventBox}>
               <p className={styles.title}>
                 {indexOfFirstEvent + index + 1}. {data.title}
               </p>
@@ -49,7 +49,7 @@ const Home = () => {
 
                 <div className={styles.cardContents}>
                   <p className={styles.description}>{data.description}</p>
-                  <Link className={styles.button} to={data.link}>
+                  <Link className={styles.button} to={`/event/${data.index}`}>
                     {data.buttonText}
                   </Link>
                 </div>
@@ -57,6 +57,7 @@ const Home = () => {
             </div>
           ))}
         </div>
+
         <div className={styles.pagination}>
           <button onClick={prevPage} disabled={currentPage === 1}>
             Previous

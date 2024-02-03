@@ -1,57 +1,57 @@
-const eventList = [
+const EventList = [
   {
     index: 1,
     image: "/images/beach.png",
-    title: "Bootcamp",
+    title: "Hello, how do you do?",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     buttonText: "Learn More",
-    link: "/",
+    link: "/event/1",
   },
   {
     index: 2,
     image: "/images/OIP.jpeg",
-    title: "Bootcamp",
+    title: "Datathon",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Lorem ipsum sorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     buttonText: "Learn More",
-    link: "/",
+    link: "/event/2",
   },
   {
     index: 3,
     image: "/images/beach.png",
-    title: "Bootcamp",
+    title: "Code With Coffee",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     buttonText: "Learn More",
-    link: "/",
+    link: "/event/3",
   },
   {
     index: 4,
     image: "/images/OIP.jpeg",
-    title: "Bootcamp",
+    title: "Capture The Flag",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     buttonText: "Learn More",
-    link: "/",
+    link: "/event/4",
   },
   {
     index: 5,
     image: "/images/beach.png",
-    title: "Bootcamp",
+    title: "Design Workshop",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     buttonText: "Learn More",
-    link: "/",
+    link: "/event/5",
   },
   {
     index: 6,
     image: "/images/OIP.jpeg",
-    title: "Bootcamp",
+    title: "Hello World",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     buttonText: "Learn More",
-    link: "/",
+    link: "/event/6",
   },
   {
     index: 7,
@@ -60,17 +60,17 @@ const eventList = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     buttonText: "Learn More",
-    link: "/",
+    link: "/event/7",
   },
   {
     index: 8,
     image: "/images/beach.png",
-    title: "Bootcamp",
+    title: "Woodcamp",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     buttonText: "Learn More",
-    link: "/",
+    link: "/event/8",
   },
 ];
 
-export default eventList;
+export default EventList;
