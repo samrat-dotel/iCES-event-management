@@ -9,6 +9,12 @@
     color: rgb(182, 171, 171);
 }
 
+.eventList {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
 .eventBox {
     display: flex;
     flex-wrap: wrap;
