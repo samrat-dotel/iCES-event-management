@@ -22,12 +22,12 @@ const Admin = () => {
     <div className={styles.main}>
       <Navbar />
       <div className={styles.formContainer}>
-        <div className={styles.titles}>
-          <h1 className={styles.title}>Are you the admin?</h1>
-          <h1 className={styles.title}>If yes, then prove it.</h1>
-        </div>
-
         <form className={styles.form} onSubmit={handleSubmit}>
+          <div className={styles.titles}>
+            <h1 className={styles.title}>Are you the admin?</h1>
+            <h1 className={styles.title}>If yes, then prove it.</h1>
+          </div>
+
           <div className={styles.inputGroup}>
             <label className={styles.label} htmlFor="email">
               Email:
