@@ -1,68 +1,103 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-
+import styles from "./Register.module.css";
+import EventList from "../../datas/events";
 
 const Register = () => {
-  // State variables for form fields
   const [name, setName] = useState("");
+  const [college, setCollege] = useState("");
+  const [faculty, setFaculty] = useState("");
   const [email, setEmail] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
+  const [phone, setPhone] = useState("");
 
-  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform any necessary actions with the form data
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Age:", age);
-    console.log("Gender:", gender);
-    // Add logic for submitting the data to your backend or performing other actions
+
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(phone)) {
+      console.log(
+        "Phone number must consist of 10 digits and contain only integers."
+      );
+      return;
+    }
+    const participantsDetail = {
+      name: name,
+      college: college,
+      faculty: faculty,
+      email: email,
+      phone: phone,
+    };
+    console.log("Participants Detail:", participantsDetail);
   };
 
   return (
-    <section>
+    <section className={styles.main}>
       <Navbar />
-      <div className="registration-form-container">
-        <h2>Participant Registration</h2>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Name:
+      <div className={styles.container}>
+        {" "}
+        <div className={styles.header}>
+          <h2 className={styles.title}>Participant Registration</h2>
+        </div>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <label className={styles.label}>
+            <span className={styles.info}>Name:</span>
             <input
               type="text"
+              placeholder="Enter your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              className={styles.inputField}
               required
             />
           </label>
-          <label>
-            Email:
+          <label className={styles.label}>
+            <span className={styles.info}>College:</span>
+            <input
+              type="text"
+              value={college}
+              placeholder="Enter your college name"
+              onChange={(e) => setCollege(e.target.value)}
+              className={styles.inputField}
+              required
+            />
+          </label>
+          <label className={styles.label}>
+            <span className={styles.info}>Faculty:</span>
+            <input
+              type="text"
+              placeholder="Enter your faculty"
+              value={faculty}
+              onChange={(e) => setFaculty(e.target.value)}
+              className={styles.inputField}
+              required
+            />
+          </label>
+          <label className={styles.label}>
+            <span className={styles.info}>Email:</span>
             <input
               type="email"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className={styles.inputField}
               required
             />
           </label>
-          <label>
-            Age:
+          <label className={styles.label}>
+            <span className={styles.info}>Phone Number:</span>
             <input
-              type="number"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
+              type="tel"
+              placeholder="Your number please"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className={styles.inputField}
               required
+              pattern="[0-9]{10}"
             />
           </label>
-          <label>
-            Gender:
-            <select value={gender} onChange={(e) => setGender(e.target.value)} required>
-              <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          </label>
-          <button type="submit">Submit</button>
+          <button type="submit" className={styles.button}>
+            Submit
+          </button>
         </form>
       </div>
     </section>

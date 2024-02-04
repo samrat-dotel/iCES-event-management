@@ -8,5 +8,5 @@ export const routes = [
   { path: "/", element: <Home /> },
   { path: "/admin", element: <Admin /> },
   { path: "/event/:eventId", element: <Event /> },
-  { path: "/register/:id", element: <Register /> },
+  { path: "/register/:eventId", element: <Register /> },
 ];
