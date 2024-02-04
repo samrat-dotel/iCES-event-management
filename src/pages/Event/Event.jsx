@@ -54,6 +54,10 @@ const Event = () => {
               Time:{" "}
               <span className={styles.elements}>{selectedEvent.time}</span>
             </p>
+            <p className={styles.text}>
+              Venue:{" "}
+              <span className={styles.elements}>{selectedEvent.venue}</span>
+            </p>
           </div>
           <Link className={styles.button} type="button" to="/">
             Register now
