@@ -1,15 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import EventList from "../../datas/events";
 import Navbar from "../../components/Navbar";
 import styles from "../Event/Event.module.css";
+import axios from "axios";
 
 const Event = () => {
   const { eventId } = useParams();
+  const [event, setEvent] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const selectedEvent = EventList.find((event) => event.index === +eventId);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/events/${eventId}`)
+      .then((response) => {
+        setEvent(response.data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching event:", error);
+        setLoading(false);
+      });
+  }, [eventId]);
 
-  if (!selectedEvent) {
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!event) {
     return <div>Event not found</div>;
   }
 
@@ -20,46 +37,35 @@ const Event = () => {
         <div className={styles.container}>
           <div className={styles.contents}>
             <img
-              src={selectedEvent.image}
-              alt={selectedEvent.title}
+              src={event.image_url}
+              alt={event.title}
               width="600"
               height="500"
             />
-            <p className={styles.title}>{selectedEvent.title}</p>
+            <p className={styles.title}>{event.title}</p>
           </div>
-          <p className={styles.description}>{selectedEvent.description}</p>
+          <p className={styles.description}>{event.description}</p>
           <div className={styles.specialBox}>
             <div className={styles.specials}>
               <p className={styles.text}>
                 <span className={styles.tag}>Event coordinator: </span>
-                <span className={styles.elements}>
-                  {" "}
-                  {selectedEvent.coordinator}
-                </span>
+                <span className={styles.elements}> {event.coordinator}</span>
               </p>
               <p className={styles.text}>
                 <span className={styles.tag}>Event sub-coordinator: </span>
-                <span className={styles.elements}>
-                  {selectedEvent.subcoordinator}
-                </span>
+                <span className={styles.elements}>{event.sub_coordinator}</span>
               </p>
               <p className={styles.text}>
                 <span className={styles.tag}>Start date: </span>
-                <span className={styles.elements}>
-                  {selectedEvent.startDate}
-                </span>
+                <span className={styles.elements}>{event.start_date}</span>
               </p>
               <p className={styles.text}>
                 <span className={styles.tag}>End date: </span>
-                <span className={styles.elements}>{selectedEvent.endDate}</span>
-              </p>
-              <p className={styles.text}>
-                <span className={styles.tag}>Time: </span>
-                <span className={styles.elements}>{selectedEvent.time}</span>
+                <span className={styles.elements}>{event.end_date}</span>
               </p>
               <p className={styles.text}>
                 <span className={styles.tag}>Venue: </span>
-                <span className={styles.elements}>{selectedEvent.venue}</span>
+                <span className={styles.elements}>{event.venue}</span>
               </p>
             </div>
             <Link className={styles.button} type="button" to="/">
