@@ -68,7 +68,11 @@ const Event = () => {
                 <span className={styles.elements}>{event.venue}</span>
               </p>
             </div>
-            <Link className={styles.button} type="button" to="/">
+            <Link
+              className={styles.button}
+              type="button"
+              to={`/register/${event.id}`}
+            >
               Register now
             </Link>
           </div>
