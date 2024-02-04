@@ -31,11 +31,11 @@
 }
 
 .button {
-    font-size: 3rem;
+    font-size: 2.5rem;
     border: 0 solid transparent;
-    padding: 1rem;
+    padding: 1rem 10rem;
     width: fit-content;
-    background-color: rgb(1, 200, 200);
+    background-color: #58068f;
     border-radius: 4rem;
     color: whitesmoke;
 }
@@ -43,20 +43,30 @@
 .specials {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
     margin-bottom: 4rem;
-    background-color: #3f3b42;
     padding: 2rem;
     max-width: max-content;
     border-radius: 5rem;
 }
 
-.text {
-    font-size: 3rem;
+.tag {
+    font-size: 2rem;
     color: rgb(240, 146, 24);
 }
 
 .elements {
     color: aliceblue;
-    font-size: 3rem;
+    font-size: 2rem;
+}
+
+.specialBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: purple;
 }
