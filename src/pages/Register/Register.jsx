@@ -12,7 +12,6 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const phoneRegex = /^[0-9]{10}$/;
     if (!phoneRegex.test(phone)) {
       console.log(
