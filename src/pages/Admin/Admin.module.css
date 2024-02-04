@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins&display=swap');
+
+.main {
+    background-color: black;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem auto;
+    padding: 2rem 0 12rem 0;
+    background-color: black;
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-size: 5rem;
+    font-family: 'Dancing Script', cursive;
+    color: rgb(23, 65, 204);
+}
+
+.form {
+    margin: 2rem;
+    padding: 2rem;
+    border: 1px solid rgb(54, 46, 46);
+    background-color: rgb(51, 44, 44);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.inputGroup {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.input {
+    font-size: 2rem;
+    background-color: black;
+    color: whitesmoke;
+    padding: .5rem;
+    width: 100%;
+}
+
+.label {
+    font-size: 2rem;
+    color: white;
+}
+
+.togglePassword {
+    font-size: 2rem;
+    background-color: transparent;
+    text-decoration: none;
+    color: white;
+}
+
+.submitButton {
+    margin-top: 4rem;
+    font-size: 2rem;
+}
