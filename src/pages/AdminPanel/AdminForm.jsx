@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./AdminForm.module.css";
+import axios from "axios";
 
 const AdminForm = () => {
   const [title, setTitle] = useState("");
@@ -17,16 +18,29 @@ const AdminForm = () => {
 
     const adminFormData = {
       title: title,
-      startDate: startDate,
-      endDate: endDate,
+      start_date: startDate,
+      end_date: endDate,
       coordinator: coordinator,
-      subCoordinator: subCoordinator,
+      sub_coordinator: subCoordinator,
       description: description,
       venue: venue,
-      image: image,
+      cover_image: image,
     };
 
     console.log("Admin Form Data:", adminFormData);
+
+    axios
+      .post(`http://localhost:3000/events`, adminFormData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then(() => {
+        console.log("Event created successfully.");
+      })
+      .catch((error) => {
+        console.error("Error creating the event:", error);
+      });
   };
 
   const handleImageChange = (e) => {
