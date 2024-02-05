@@ -12,7 +12,7 @@
 }
 
 .container {
-    margin: 4rem auto;
+    margin: 5rem auto;
     border: 0 solid transparent;
     background-color: rgb(51, 45, 45);
     display: flex;
@@ -20,6 +20,11 @@
     max-width: fit-content;
     padding: 2rem;
     border-radius: 5rem;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
@@ -35,6 +40,14 @@
     align-items: center;
     gap: 2rem;
     width: 700px;
+}
+
+.labelImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .label {
