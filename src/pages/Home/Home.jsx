@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import styles from "../Home/Home.module.css";
 import axios from "axios";
+import OngoingEvent from "./OnngoingEvent";
 
 const Home = () => {
   const eventsPerPage = 5;
@@ -44,6 +45,8 @@ const Home = () => {
   return (
     <section>
       <Navbar />
+
+      <OngoingEvent />
 
       <div className={styles.main}>
         <p className={styles.pageTitle}>Upcoming Events</p>

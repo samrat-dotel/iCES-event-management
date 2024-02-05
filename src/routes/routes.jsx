@@ -5,6 +5,8 @@ import Admin from "../pages/Admin/Admin";
 import Register from "../pages/Register/Register";
 import AdminPanel from "../pages/AdminPanel/AdminPanel";
 import OngoingEvent from "../pages/Home/OnngoingEvent";
+import EventOngoing from "../pages/Event/EventOngoing";
+import AttendanceForm from "../pages/Attendance/Attendance";
 
 export const routes = [
   { path: "/", element: <Home /> },
@@ -14,4 +16,6 @@ export const routes = [
   { path: "/event/:eventId/register", element: <Register /> },
   { path: "/admin/adminpanel", element: <AdminPanel /> },
   { path: "/ongoing-events", element: <OngoingEvent /> },
+  { path: "ongoing/event/:eventId", element: <EventOngoing /> },
+  { path: "/event/:eventId/attendance", element: <AttendanceForm /> },
 ];

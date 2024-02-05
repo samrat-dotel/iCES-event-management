@@ -44,7 +44,6 @@ const OngoingEvent = () => {
 
   return (
     <section>
-      <Navbar />
       <div className={styles.main}>
         <p className={styles.pageTitle}>Ongoing Events</p>
 
@@ -65,8 +64,11 @@ const OngoingEvent = () => {
 
                 <div className={styles.cardContents}>
                   <p className={styles.description}>{data.description}</p>
-                  <Link className={styles.button} to={`/event/${data.id}`}>
-                    Attendance
+                  <Link
+                    className={styles.button}
+                    to={`ongoing/event/${data.id}`}
+                  >
+                    See More
                   </Link>
                 </div>
               </div>
