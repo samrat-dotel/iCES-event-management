@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
+import { useParams, useLocation } from "react-router-dom";
 import styles from "./Register.module.css";
-import EventList from "../../datas/events";
+import axios from "axios";
 
 const Register = () => {
+  const { state } = useLocation();
+  const { imageUrl } = state || {};
+  const { eventId } = useParams();
+
   const [name, setName] = useState("");
   const [college, setCollege] = useState("");
   const [faculty, setFaculty] = useState("");
@@ -21,21 +26,34 @@ const Register = () => {
     }
     const participantsDetail = {
       name: name,
-      college: college,
+      collage: college,
       faculty: faculty,
       email: email,
-      phone: phone,
+      phone_no: phone,
+      event_id: eventId,
     };
     console.log("Participants Detail:", participantsDetail);
+    axios
+      .post(`http://localhost:3000/participants`, participantsDetail, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(() => {
+        console.log("Registration successful");
+      })
+      .catch((error) => {
+        console.error("Error occurred during registration:", error);
+      });
   };
 
   return (
     <section className={styles.main}>
       <Navbar />
       <div className={styles.container}>
-        {" "}
         <div className={styles.header}>
           <h2 className={styles.title}>Participant Registration</h2>
+          <img src={imageUrl} alt={eventId} width="auto" height="400" />
         </div>
         <form onSubmit={handleSubmit} className={styles.form}>
           <label className={styles.label}>

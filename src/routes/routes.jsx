@@ -10,5 +10,5 @@ export const routes = [
   { path: "/admin", element: <Admin /> },
   { path: "/adminpanel", element: <AdminPanel /> },
   { path: "/event/:eventId", element: <Event /> },
-  { path: "/register/:eventId", element: <Register /> },
+  { path: "/event/:eventId/register", element: <Register /> },
 ];
