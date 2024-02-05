@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
-import eventList from "../../datas/events";
 import styles from "../Home/Home.module.css";
+import axios from "axios";
 
 const Home = () => {
   const eventsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
+  const [eventList, setEventList] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/events", { withCredentials: true })
+      .then((response) => {
+        setEventList(response.data.data);
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  }, []);
 
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
@@ -34,14 +46,14 @@ const Home = () => {
 
         <div className={styles.eventList}>
           {currentEvents.map((data, index) => (
-            <div key={data.index} className={styles.eventBox}>
+            <div key={data.id} className={styles.eventBox}>
               <p className={styles.title}>
                 {indexOfFirstEvent + index + 1}. {data.title}
               </p>
 
               <div className={styles.boxContents}>
                 <img
-                  src={data.image}
+                  src={data.image_url}
                   alt={data.title}
                   width="400"
                   height="300"
@@ -49,8 +61,8 @@ const Home = () => {
 
                 <div className={styles.cardContents}>
                   <p className={styles.description}>{data.description}</p>
-                  <Link className={styles.button} to={`/event/${data.index}`}>
-                    {data.buttonText}
+                  <Link className={styles.button} to={`/event/${data.id}`}>
+                    Book now
                   </Link>
                 </div>
               </div>

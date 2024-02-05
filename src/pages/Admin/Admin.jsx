@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import styles from "../Admin/Admin.module.css";
+import axios from "axios";
 
 const Admin = () => {
   const [email, setEmail] = useState("");
@@ -8,12 +9,39 @@ const Admin = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formState, setFormState] = useState(null);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    // Check for the session cookie when the component mounts
+    const loggedIn = document.cookie.includes("logged_in=true");
+    if (loggedIn) {
+      // If logged in, redirect to admin panel
+      window.location.href = "/adminpanel";
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulating form submission
-    if (email === "admin@example.com" && password === "password") {
-      setFormState("success");
-    } else {
+
+    try {
+      // Make POST request to your backend server
+      const response = await axios.post("http://localhost:3000/auth/sign_in", {
+        email,
+        password,
+      });
+
+      // Check response status
+      if (response.status === 200) {
+        // Login successful
+        setFormState("success");
+        document.cookie = "logged_in=true; path=/";
+
+        // Redirect to admin panel
+        window.location.href = "/admin-panel";
+      } else {
+        // Login failed
+        setFormState("error");
+      }
+    } catch (error) {
+      console.error("Error:", error);
       setFormState("error");
     }
   };
