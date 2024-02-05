@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import styles from "./Register.module.css";
 import axios from "axios";
 
 const Register = () => {
+  const { state } = useLocation();
+  const { imageUrl } = state || {};
   const { eventId } = useParams();
 
   const [name, setName] = useState("");
@@ -51,6 +53,7 @@ const Register = () => {
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>Participant Registration</h2>
+          <img src={imageUrl} alt={eventId} width="auto" height="400" />
         </div>
         <form onSubmit={handleSubmit} className={styles.form}>
           <label className={styles.label}>

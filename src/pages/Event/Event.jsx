@@ -71,7 +71,10 @@ const Event = () => {
             <Link
               className={styles.button}
               type="button"
-              to={`/event/${event.id}/register`}
+              to={{
+                pathname: `/event/${event.id}/register`,
+                state: { imageUrl: event.image_url },
+              }}
             >
               Register now
             </Link>
