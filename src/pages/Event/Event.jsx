@@ -71,7 +71,7 @@ const Event = () => {
             <Link
               className={styles.button}
               type="button"
-              to={`/register/${event.id}`}
+              to={`/event/${event.id}/register`}
             >
               Register now
             </Link>
