@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import styles from "../Home/Home.module.css";
+import styles from "../Home/OngoingEvent.module.css";
 import axios from "axios";
+import Navbar from "../../components/Navbar";
 
-const Home = () => {
+const OngoingEvent = () => {
   const eventsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const [eventList, setEventList] = useState([]);
@@ -13,8 +13,9 @@ const Home = () => {
     axios
       .get("http://localhost:3000/events", { withCredentials: true })
       .then((response) => {
+        const currentDate = new Date().toISOString().split("T")[0];
         const filteredEvents = response.data.data.filter(
-          (event) => new Date(event.start_date) > new Date()
+          (event) => event.start_date.split("T")[0] === currentDate
         );
         setEventList(filteredEvents);
       })
@@ -44,9 +45,8 @@ const Home = () => {
   return (
     <section>
       <Navbar />
-
       <div className={styles.main}>
-        <p className={styles.pageTitle}>Upcoming Events</p>
+        <p className={styles.pageTitle}>Ongoing Events</p>
 
         <div className={styles.eventList}>
           {currentEvents.map((data, index) => (
@@ -66,7 +66,7 @@ const Home = () => {
                 <div className={styles.cardContents}>
                   <p className={styles.description}>{data.description}</p>
                   <Link className={styles.button} to={`/event/${data.id}`}>
-                    Book now
+                    Attendance
                   </Link>
                 </div>
               </div>
@@ -90,4 +90,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default OngoingEvent;
