@@ -24,7 +24,7 @@ const Register = () => {
     }
     const participantsDetail = {
       name: name,
-      college: college,
+      collage: college,
       faculty: faculty,
       email: email,
       phone_no: phone,
