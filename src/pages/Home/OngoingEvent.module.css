@@ -1,0 +1,108 @@
+.main {
+    padding: 2rem;
+    background-color: rgb(12, 11, 11);
+}
+
+.pageTitle {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: rgb(182, 171, 171);
+}
+
+.eventList {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.eventBox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #302f31;
+    padding: 2rem 4rem;
+    margin: 2rem 4rem;
+    border-radius: 5rem;
+}
+
+.boxContents {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-evenly;
+    padding: 2rem;
+}
+
+.image {
+    max-width: 500px;
+}
+
+.title {
+    font-size: 3rem;
+    color: #7f2eb5;
+}
+
+.description {
+    font-size: 2rem;
+    color: whitesmoke;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.button {
+    font-size: 2rem;
+    color: antiquewhite;
+    border: 0 solid #302f31;
+    background-color: #7f2eb5;
+    margin: 2rem 0;
+    padding: 1rem;
+    max-width: fit-content;
+    border-radius: 2rem;
+}
+
+.cardContents {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 700px;
+    justify-content: center;
+}
+
+.pagination {
+    margin: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination button {
+    background-color: #7f2eb5;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #8b1dd4;
+}
+
+.pagination button:disabled {
+    background-color: #7f678f;
+    cursor: not-allowed;
+}
+
+.pageNumber {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
