@@ -40,7 +40,7 @@ const Register = () => {
         },
       })
       .then(() => {
-        console.log("Registration successful");
+        window.location.href = "/";
       })
       .catch((error) => {
         console.error("Error occurred during registration:", error);
@@ -112,7 +112,7 @@ const Register = () => {
               pattern="[0-9]{10}"
             />
           </label>
-          <button type="submit" className={styles.button}>
+          <button type="submit" className={styles.button} href="/">
             Submit
           </button>
         </form>

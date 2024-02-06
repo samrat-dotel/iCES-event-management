@@ -10,10 +10,8 @@ const Admin = () => {
   const [formState, setFormState] = useState(null);
 
   useEffect(() => {
-    // Check for the session cookie when the component mounts
     const loggedIn = document.cookie.includes("logged_in=true");
     if (loggedIn) {
-      // If logged in, redirect to admin panel
       window.location.href = "/adminpanel";
     }
   }, []);
@@ -22,22 +20,17 @@ const Admin = () => {
     e.preventDefault();
 
     try {
-      // Make POST request to your backend server
       const response = await axios.post("http://localhost:3000/auth/sign_in", {
         email,
         password,
       });
 
-      // Check response status
       if (response.status === 200) {
-        // Login successful
         setFormState("success");
         document.cookie = "logged_in=true; path=/";
 
-        // Redirect to admin panel
-        window.location.href = "/admin-panel";
+        window.location.href = "/adminpanel";
       } else {
-        // Login failed
         setFormState("error");
       }
     } catch (error) {

@@ -14,20 +14,12 @@ const AttendanceForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.get(
-        `http://localhost:3000/participants?event_id=${eventId}`
-      );
-
-      if (response.data.exists) {
-        await axios.post("http://localhost:3000/attendances", {
-          event_id: eventId,
-          email: email,
-        });
-        setEmail("");
-        setSubmitted(true);
-      } else {
-        console.log("Email does not exist for the specified event.");
-      }
+      await axios.post("http://localhost:3000/attendances", {
+        event_id: eventId,
+        email: email,
+      });
+      setEmail("");
+      setSubmitted(true);
     } catch (error) {
       console.error("Error submitting attendance:", error);
     }

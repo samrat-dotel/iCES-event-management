@@ -30,11 +30,17 @@ const AdminForm = () => {
     console.log("Admin Form Data:", adminFormData);
 
     axios
-      .post(`http://localhost:3000/events`, adminFormData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .post(
+        `http://localhost:3000/events`,
+
+        adminFormData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      )
       .then(() => {
         console.log("Event created successfully.");
       })
